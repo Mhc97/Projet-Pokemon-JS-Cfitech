@@ -1,4 +1,10 @@
 Je vous présente mon projet Poke-Blood un Jeu RPG sur l'univers Pokemon interdit au moins de 18 ans ame sensible s'abstenir contenant violence bagarre violence bagarre encore bagare violence pour Cfitech 
 ![alt text](image-1.png)
 
-[alt text](./assets/image/r.png)
+[alt text](r.png)
+<!-- <table>
+  <tr>
+    <td><img src="chemin/image1.png" width="400"></td>
+    <td><img src="chemin/image2.png" width="400"></td>
+  </tr>
+</table> -->
