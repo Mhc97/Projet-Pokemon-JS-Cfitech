@@ -1,3 +1,5 @@
+const selection = document.getElementById('selection');
+
 let pkmList = [
 // Dracaufeu
 

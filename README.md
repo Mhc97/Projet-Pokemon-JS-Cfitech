@@ -3,6 +3,7 @@ Je vous présente mon projet Poke-Blood un Jeu RPG sur l'univers Pokemon interdi
 <table>
   <tr>
     <td><img src="./assets/image/image-1.png" width="400"></td>
+    <br>
     <td><img src="./assets/image/r.png" width="400"></td>
   </tr>
 </table>
