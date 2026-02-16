@@ -21,7 +21,7 @@ let pkmList = [
     ]
  ]],
 
-// Racaouille
+// Racaillou
 [
     ['Racaillou', 'https://www.pokepedia.fr', 290, [
         ['Jet-Pierres', 'roche', 50, 0.90],
