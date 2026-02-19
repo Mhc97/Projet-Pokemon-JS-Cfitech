@@ -1,5 +1,6 @@
 const selection = document.getElementById('selection');
 
+
 let pkmList = [
 // Dracaufeu
 
@@ -23,10 +24,10 @@ let pkmList = [
 
 // Racaillou
 [
-    ['Racaillou', 'https://www.pokepedia.fr', 290, [
-        ['Jet-Pierres', 'roche', 50, 0.90],
+    ['Racaillou', './assets/image/Geodude.png', 320, [
+        ['Jet-Pierres', 'roche', 75, 0.90],
         ['Séisme', 'sol', 100, 1.00],
-        ['Roulade', 'roche', 30, 0.90],
+        ['Roulade', 'roche', 85, 0.90],
         ['Boul\'Armure', 'normal', 0, 1.00]
     ]]
 ]

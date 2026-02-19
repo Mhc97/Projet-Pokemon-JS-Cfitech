@@ -1,0 +1,19 @@
+/* Ajoutez ces styles de base */
+.pokeball {
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    animation: drop 1s, shake 2s infinite;
+}
+
+@keyframes drop {
+    from { transform: translateY(-500px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%,100% { transform: rotate(0); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-20deg); }
+}
