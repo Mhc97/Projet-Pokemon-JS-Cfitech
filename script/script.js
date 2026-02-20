@@ -1,5 +1,10 @@
-const selection = document.getElementById('selection');
+// les varaiables importante
 
+let playerPokemon = null;
+let enemyPokemon = null;
+let gameActive = false;
+
+// la liste des pokemon
 
 let pkmList = [
 // Dracaufeu
@@ -32,6 +37,53 @@ let pkmList = [
     ]]
 ]
 
+];
+
+function selectPokemon(index){
+// Récupérer les données du Pokémon choisi
+    const pkmData = pkmList[index];
+
+    playerPokemon = {
+    name: pkmData[0],
+    sprite: pkmData[1],
+    maxHp: pkmData[2],
+    Hp: pkmData[2],
+    moves: pkmData[3],
+
+};
+
+// choisir un enemie aléatoire
+
+const randomIndex = Math.floor(Math.random() * pkmList.length);
+const enemyData = pkmList[randomIndex];
+
+enemyPokemon = {
+    name: enemyData[0],
+    sprite: enemyData[1],
+    maxHp: enemyData[2],
+    Hp: enemyData[2],
+    moves: enemyData[3],
+
+};
+
+// mettre à jour l'affichage pokemon 
+
+document.getElementById('player-sprite').src = playerPokemon.sprite;
+document.getElementById('enemy-sprite').src = enemyPokemon.sprite;
+
+document.getElementById('player-name').textContent = playerPokemon.name;
+document.getElementById('enemy-name').textContent = enemyPokemon.name;
+
+document.getElementById('player-hp-text').textContent = `${playerPokemon.Hp}`/`${playerPokemon.maxHP}`;
+document.getElementById('enemy-hp-text').textContent = `${enemyPokemon.Hp}`/`${enemyPokemon.maxHP}`;
+
+// activer le jeu Poke-blood
+
+gameActive = true;
+
+}
 
 
-]
+
+
+

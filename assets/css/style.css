@@ -1,5 +1,5 @@
 /* Ajoutez ces styles de base */
-/* #pokeball {
+#pokeball {
     width: 100px;
     height: 100px;
     background: red;
@@ -16,11 +16,11 @@
     0%,100% { transform: rotate(0); }
     25% { transform: rotate(20deg); }
     75% { transform: rotate(-20deg); }
-} */
+}
 
 /* ===== PAGE DE COMBAT ===== */
 .battle-page {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #1c2941 0%, #679fff 100%);
     min-height: 100vh;
     margin: 0;
     padding: 0;
