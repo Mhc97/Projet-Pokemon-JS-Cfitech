@@ -42,12 +42,12 @@ let pkmList = [
 function selectPokemon(index){
 // Récupérer les données du Pokémon choisi
     const pkmData = pkmList[index];
-
-    playerPokemon = {
+// construction du premier joueur
+playerPokemon = {
     name: pkmData[0],
     sprite: pkmData[1],
-    maxHp: pkmData[2],
-    Hp: pkmData[2],
+    maxHP: pkmData[2],
+    hp: pkmData[2],
     moves: pkmData[3],
 
 };
@@ -60,8 +60,8 @@ const enemyData = pkmList[randomIndex];
 enemyPokemon = {
     name: enemyData[0],
     sprite: enemyData[1],
-    maxHp: enemyData[2],
-    Hp: enemyData[2],
+    maxHP: enemyData[2],
+    hp: enemyData[2],
     moves: enemyData[3],
 
 };
@@ -74,14 +74,27 @@ document.getElementById('enemy-sprite').src = enemyPokemon.sprite;
 document.getElementById('player-name').textContent = playerPokemon.name;
 document.getElementById('enemy-name').textContent = enemyPokemon.name;
 
-document.getElementById('player-hp-text').textContent = `${playerPokemon.Hp}`/`${playerPokemon.maxHP}`;
-document.getElementById('enemy-hp-text').textContent = `${enemyPokemon.Hp}`/`${enemyPokemon.maxHP}`;
+document.getElementById('player-hp-text').textContent = 
+`${playerPokemon.hp} / ${playerPokemon.maxHP}`;
+document.getElementById('enemy-hp-text').textContent = 
+`${enemyPokemon.hp} / ${enemyPokemon.maxHP}`;
 
 // activer le jeu Poke-blood
 
 gameActive = true;
 
+// mettre à jours les barres de vie
+
+    updateHPBars();
+    updateAttackButtons();
+
+    
+// console.log(document.getElementById('enemy-hp-text'));
+
 }
+
+
+
 
 
 
