@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poke-Blood</title>
+    <title>Poke-Blood - Combat</title>
+    <!-- Lien vers ton fichier CSS principal -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="battle-page">  <!-- classe pour styliser la page de combat -->
     
+    <!-- ARÈNE DE COMBAT -->
+    <div class="battle-arena">
+
+        <!-- ===== INFOS JOUEUR (en haut à gauche) ===== -->
+        <div class="player-info">
+            <div class="pokemon-name" id="player-name">???</div>
+            <div class="hp-text" id="player-hp-text">0 / 0</div>
+            <div class="hp-bar-container">
+                <div class="hp-bar green" id="player-hp-bar" style="width: 280px"></div>
+            </div>
+        </div>
+
+        <!-- ===== INFOS ENNEMI (en haut à droite) ===== -->
+        <div class="enemy-info">
+            <div class="pokemon-name" id="enemy-name">???</div>
+            <div class="hp-text" id="enemy-hp-text">0 / 0</div>
+            <div class="hp-bar-container">
+                <div class="hp-bar green" id="enemy-hp-bar" style="width: 280px"></div>
+            </div>
+        </div>
+
+        <!-- ===== SPRITES ===== -->
+        <!-- Joueur en bas à gauche -->
+        <img class="player-sprite" id="player-sprite" src="" alt="Player Pokémon">
+        <!-- Ennemi en haut à droite -->
+        <img class="enemy-sprite" id="enemy-sprite" src="" alt="Enemy Pokémon">
+
+        <!-- ===== ZONE INFÉRIEURE ===== -->
+        <div class="battle-bottom">
+            <!-- Zone de texte centrale -->
+            <div class="message-box">
+                <div class="message-text" id="message-text">Choisis ton Pokémon !</div>
+            </div>
+            
+            <!-- Zone des 4 boutons d'attaque -->
+            <div class="attack-zone">
+                <button class="attack-btn" id="attack-0" disabled>Attaque 1</button>
+                <button class="attack-btn" id="attack-1" disabled>Attaque 2</button>
+                <button class="attack-btn" id="attack-2" disabled>Attaque 3</button>
+                <button class="attack-btn" id="attack-3" disabled>Attaque 4</button>
+            </div>
+        </div>
+
+    </div> <!-- fin battle-arena -->
+
+    <!-- Script principal du jeu -->
+    <script src="./script/script.js"></script>
 </body>
 </html>
