@@ -93,6 +93,42 @@ gameActive = true;
 
 }
 
+// pour les attaques
+
+function attack(moveIndex, attacker, defender){
+    // 1.Récupérer les données de l'attaque
+    const move = attacker.moves[moveIndex];
+    const moveName = move[0];
+    const baseDamage = move[2];
+    const accuracy = move[3];
+
+    // 2.vérifier si l'attaque touche
+    if (Math.random() > accuracy){
+        showMessage(`${attacker.name} utilise ${moveName}... mais rate!`);
+        return; // on arrête ici
+        
+    }
+
+    // 3.Variation aléatoire des dégâts (+0 à +10)
+    const variation = Math.floor(Math.random() *11); 
+    const totalDamage = baseDamage + variation;
+
+    // 4.Afficher le message de réussite
+    showMessage(`${attacker.name} utilise ${moveName} et inflige ${totalDamage} dégats !`);
+
+    // 5. Infliger les dégâts
+    defender.hp -= totalDamage;
+    if (defender.hp <0) defender.hp = 0;
+
+    // 6.Mettre à jour l'affichage
+    
+    updateHPBars();
+
+    //7. Vériier si le défenseur est k.0. (optionnel pour l'instant)
+    if (defender.hp <= 0){
+        showMessage(`${defender.name} est K.O. !`)
+    }
+}
 
 
 
