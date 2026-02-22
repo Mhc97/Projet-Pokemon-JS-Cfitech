@@ -126,7 +126,54 @@ function attack(moveIndex, attacker, defender){
 
     //7. Vériier si le défenseur est k.0. (optionnel pour l'instant)
     if (defender.hp <= 0){
-        showMessage(`${defender.name} est K.O. !`)
+        showMessage(`${defender.name} est K.O. !`);
+    }
+
+}
+
+// afficher message
+
+function showMessage(text){
+    const msgBox = document.getElementById('message-text');
+        if (msgBox){
+            msgBox.textContent = text;
+        }else {
+            console.log("Message :", text);
+        }
+}
+
+function updateHPBars(){
+    // player
+    const playerPercent = playerPokemon.hp / playerPokemon.maxHP;
+    const playerBar = document.getEelemntById('player-hp-bar');
+    const playerText = document.getElementById('player-hp-text');
+
+    playerBar.style.width = Math.floor(playerPercent * 280) + 'px';
+    playerText.textContent = `${playerPokemon.hp} / ${playerPokemon.maxHP}`;
+
+    if (playerPercent > 0.5) {
+        playerBar.className = 'hp-bar green';
+    }else if (playerPercent > 0.25) {
+        playerBar.className = 'hp-bar orange';
+    }else {
+        playerBar.className = 'hp-bar red';
+    }
+
+    // Ennemi
+
+    const enemyPercent = enemyPokemon.hp / enemyPokemon.maxHP;
+    const enemyBar = document.getElementById('enemy-hp-bar');
+    const enemyText = document.getElementById('enemy-hp-text');
+
+    enemyBar.style.width = Math.floor(enemyPercent * 280) + 'px';
+    enemyText.textContent = `${enemyPokemon.hp} / ${enemyPokemon.maxHP}`;
+
+    if (enemyPercent > 0.5) {
+        enemyBar.className = 'hp-bar green';
+    }else if (enemyPercent > 0.25) {
+        enemyBar.className = 'hp-bar orange';
+    }else {
+        enemyBar.className = 'hp-bar red';
     }
 }
 
