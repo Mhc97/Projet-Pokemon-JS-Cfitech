@@ -9,7 +9,7 @@ let gameActive = false;
 let pkmList = [
 // Dracaufeu
 
-   ['Dracaufeu', './assets/image/800px-Dracaufeu-RFVF.png', 360, [
+['Dracaufeu', './assets/image/800px-Dracaufeu-RFVF.png', 360, [
  ['Lance-flammes', 'feu', 95, 0.90],
  ['Vol', 'vol', 90, 0.95],
  ['Danse-flamme', 'feu', 85, 0.88],
@@ -178,6 +178,8 @@ function updateHPBars(){
     }
 }
 
+// attaquer mon adversaire
+
 function updateAttackButtons(){
     const attacks = playerPokemon.moves;
     for (let i = 0; i < 4; i++){
@@ -196,6 +198,28 @@ function updateAttackButtons(){
     }
 }
 
+
+// pour que mon adversaire riposte
+
+function disableAttackButtons(disabled){
+    for (let i = 0; i < 4; i++){
+        document.getElementById(`attack-${i}`).disabled = disabled;
+    }
+}
+
+// si l'attaquant est le joueur, que l'ennemi est vivant et que le joueur aussi
+if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
+    console.log("Condition remple, lancement du tour ennemi");
+    disableAttackButtons(true);
+    setTimeout(() => {
+        console.log("Délai passé, attaque ennemie");
+        const randomMove = Math.floor(Math.random() * 4); 
+        attack(randomMove, enemyPokemon, playerPokemon);
+        if (playerPokemon.hp > 0 && enemyPokemon.hp > 0){
+            disableAttackButtons(false);
+        }
+    }, 2000);
+}
 
 
 
