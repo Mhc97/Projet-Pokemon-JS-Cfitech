@@ -39,6 +39,8 @@ let pkmList = [
 
 ];
 
+
+
 function selectPokemon(index){
 // Récupérer les données du Pokémon choisi
     const pkmData = pkmList[index];
@@ -118,7 +120,7 @@ function attack(moveIndex, attacker, defender){
 
     // 5. Infliger les dégâts
     defender.hp -= totalDamage;
-    if (defender.hp <0) defender.hp = 0;
+    if (defender.hp < 0) defender.hp = 0;
 
     // 6.Mettre à jour l'affichage
     
@@ -148,15 +150,26 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
 // partie win ou gameover
 // partie commentaire
     if (defender.hp <= 0){
+        console.log(defender.hp);
         showMessage(`${defender.name} est K.O`);
         gameActive = false;
         disableAttackButtons(true);
+        // disableAttackButtons(true); le bouton recommencer apparait même quand il est en commentaire
 
         if(defender === playerPokemon){
             showMessage("💀Vous avez perdu...");
         }else{
             showMessage("🏆Victoire!");
         }
+    // créer un bouton recommencer
+    const restartBtn = document.createElement('button');
+    restartBtn.id = 'restart-btn';
+    restartBtn.textContent = '🔄Recommencer';
+    restartBtn.style.cssText = 'position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 15px 30px; background: #ffd700; border: 2px solid #000; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 1000;';
+    restartBtn.onclick = () => location.reload();
+    document.body.appendChild(restartBtn);
+
+    return; //Ne pas déclencher le tour ennemi 
     }
 }
 
