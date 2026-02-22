@@ -145,7 +145,7 @@ function showMessage(text){
 function updateHPBars(){
     // player
     const playerPercent = playerPokemon.hp / playerPokemon.maxHP;
-    const playerBar = document.getEelemntById('player-hp-bar');
+    const playerBar = document.getElementById('player-hp-bar');
     const playerText = document.getElementById('player-hp-text');
 
     // playerBar.style.width = Math.floor(playerPercent * 280) + 'px';
@@ -178,7 +178,23 @@ function updateHPBars(){
     }
 }
 
-
+function updateAttackButtons(){
+    const attacks = playerPokemon.moves;
+    for (let i = 0; i < 4; i++){
+        const btn = document.getElementById(`attack-${i}`);
+        if (attacks[i]){
+            btn.textContent = attacks[i][0];
+            btn.disabled = false;
+            btn.onclick = function(){
+                attack(i, playerPokemon, enemyPokemon);
+            };
+        }else{
+            btn.textContent = "---";
+            btn.disabled = true;
+            btn.onclick = null;
+        }
+    }
+}
 
 
 
