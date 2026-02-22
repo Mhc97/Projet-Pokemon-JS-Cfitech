@@ -145,6 +145,19 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
     }, 2000);
 }
 
+// partie win ou gameover
+// partie commentaire
+    if (defender.hp <= 0){
+        showMessage(`${defender.name} est K.O`);
+        gameActive = false;
+        disableAttackButtons(true);
+
+        if(defender === playerPokemon){
+            showMessage("💀Vous avez perdu...");
+        }else{
+            showMessage("🏆Victoire!");
+        }
+    }
 }
 
 // afficher message
