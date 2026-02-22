@@ -148,7 +148,8 @@ function updateHPBars(){
     const playerBar = document.getEelemntById('player-hp-bar');
     const playerText = document.getElementById('player-hp-text');
 
-    playerBar.style.width = Math.floor(playerPercent * 280) + 'px';
+    // playerBar.style.width = Math.floor(playerPercent * 280) + 'px';
+    playerBar.style.width = playerPercent * 280 + 'px'; // la barre reste à 280 px même si les PV
     playerText.textContent = `${playerPokemon.hp} / ${playerPokemon.maxHP}`;
 
     if (playerPercent > 0.5) {
