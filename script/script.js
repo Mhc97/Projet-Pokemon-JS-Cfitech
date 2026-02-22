@@ -127,7 +127,23 @@ function attack(moveIndex, attacker, defender){
     //7. Vériier si le défenseur est k.0. (optionnel pour l'instant)
     if (defender.hp <= 0){
         showMessage(`${defender.name} est K.O. !`);
+        // la fin d'un combat
     }
+
+// c'est le tour de l'adversaire
+        // si l'attaquant est le joueur, que l'ennemi est vivant et que le joueur aussi
+if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
+    // console.log("Condition remple, lancement du tour ennemi");
+    disableAttackButtons(true);
+    setTimeout(() => {
+        // console.log("Délai passé, attaque ennemie");
+        const randomMove = Math.floor(Math.random() * 4); 
+        attack(randomMove, enemyPokemon, playerPokemon);
+        if (playerPokemon.hp > 0 && enemyPokemon.hp > 0){
+            disableAttackButtons(false);
+        }
+    }, 2000);
+}
 
 }
 
@@ -205,21 +221,13 @@ function disableAttackButtons(disabled){
     for (let i = 0; i < 4; i++){
         document.getElementById(`attack-${i}`).disabled = disabled;
     }
+
+
 }
 
-// si l'attaquant est le joueur, que l'ennemi est vivant et que le joueur aussi
-if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
-    console.log("Condition remple, lancement du tour ennemi");
-    disableAttackButtons(true);
-    setTimeout(() => {
-        console.log("Délai passé, attaque ennemie");
-        const randomMove = Math.floor(Math.random() * 4); 
-        attack(randomMove, enemyPokemon, playerPokemon);
-        if (playerPokemon.hp > 0 && enemyPokemon.hp > 0){
-            disableAttackButtons(false);
-        }
-    }, 2000);
-}
+
+
+
 
 
 
