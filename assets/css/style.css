@@ -1,3 +1,9 @@
+body{
+    background-color: rgb(171, 171, 255);
+    text-align: center;
+}
+
+
 /* Ajoutez ces styles de base */
 #pokeball {
     width: 100px;
@@ -18,20 +24,29 @@
     75% { transform: rotate(-20deg); }
 } 
 
+
+
 .pokemon-selection{
+
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20;
 }
 
 .pokemon-card{
     border-radius: 7px 7px 7px 7px;
     border: 2px solid white;
+    cursor: grab;
 }
 
-body{
-    background-color: rgb(171, 171, 255);
+.pokemon-card:hover{
+    transform: scale(1.3);
+    border: 2px solid red;
+    color: red;
 }
+
+
 
 .start-btn{
 text-decoration: none;

@@ -43,7 +43,7 @@ let pkmList = [
 
 const typeMultipliers = {
     'feu':{'plante': 2, 'eau': 0.5},
-    'eau':{'feu': 2, 'eau': 0.5},
+    'eau':{'feu': 2, 'plante': 0.5},
     'plante':{'eau': 2, 'feu': 0.5},
 };
 
@@ -138,18 +138,22 @@ function attack(moveIndex, attacker, defender){
     const finalDamage = Math.floor(totalDamage * multiplier);
 
     // 5. Messages d'efficacité
-
+    let message = `${attacker.name} utilise ${moveName} et inflige ${finalDamage} dégâts !`;
     if (multiplier > 1){
-        showMessage("c'est super efficace !");
+    //     showMessage("c'est super efficace !");
+    
+    message += "c'est super efficace !";
     } else if (multiplier <1 && multiplier > 0){
-        showMessage("ce n'est pas très efficace...")
+        // showMessage("ce n'est pas très efficace...")
+    message += "ce n'est pas très efficace...";
     } else if (multiplier === 0){
-        showMessage("cela n'a aucun effet...");
+    //     showMessage("cela n'a aucun effet...");
+    message += "cela n'a aucun effet...";
     }
-
+    showMessage(message);
     // 6. Message d'attaque (avec les dégâts finaux)
     showMessage(`${attacker.name} utilise ${moveName} et inflige ${finalDamage} dégâts !`);
-
+   
     // 7. infliger les dégats (finalDamage)
     defender.hp -= finalDamage;
     if (defender.hp < 0) defender.hp = 0;
@@ -284,6 +288,22 @@ function disableAttackButtons(disabled){
 
 }
 
+// créer le choix pokemon 
+function choisirPokemon(index){
+    localStorage.setItem('choixPokemon', index);// stock l'index (0,1,2)
+    window.location.href = 'battle.html'; // redirige vers la page de combat
+
+
+} 
+
+// pour afficher le pokemon choisi dans l'arene
+    window.onload = function(){
+        const index = this.localStorage.getItem('choixPokemon');
+        if(index !== null){
+            selectPokemon(parseInt(index)); // transforme la chaine "0" en nombre 0
+            // localStorage.removeItem('choixPokemon');// nettoie pour éviter de re-sélectionner au prochain chargement
+        }
+    }
 
 
 
