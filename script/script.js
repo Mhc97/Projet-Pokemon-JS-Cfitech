@@ -39,6 +39,20 @@ let pkmList = [
 
 ];
 
+  // Système de types
+
+const typeMultipliers = {
+    'feu':{'plante': 2, 'eau': 0.5},
+    'eau':{'feu': 2, 'eau': 0.5},
+    'plante':{'eau': 2, 'feu': 0.5},
+};
+
+function getTypeMultiplier(attackType, defenderType){
+    if (typeMultipliers[attackType] && typeMultipliers[attackType][defenderType]){
+        return typeMultipliers[attackType][defenderType];
+    }
+    return 1;
+}
 
 
 function selectPokemon(index){
@@ -101,8 +115,11 @@ function attack(moveIndex, attacker, defender){
     // 1.Récupérer les données de l'attaque
     const move = attacker.moves[moveIndex];
     const moveName = move[0];
+    const attackType = move[1]
     const baseDamage = move[2];
     const accuracy = move[3];
+
+    
 
     // 2.vérifier si l'attaque touche
     if (Math.random() > accuracy){
@@ -116,21 +133,32 @@ function attack(moveIndex, attacker, defender){
     const totalDamage = baseDamage + variation;
 
     // 4.Afficher le message de réussite
-    showMessage(`${attacker.name} utilise ${moveName} et inflige ${totalDamage} dégats !`);
+   const defenderType = defender.moves[0][1];  // type de la première attaque du défenseur
+    const multiplier = getTypeMultiplier(attackType, defenderType);
+    const finalDamage = Math.floor(totalDamage * multiplier);
 
-    // 5. Infliger les dégâts
-    defender.hp -= totalDamage;
+    // 5. Messages d'efficacité
+
+    if (multiplier > 1){
+        showMessage("c'est super efficace !");
+    } else if (multiplier <1 && multiplier > 0){
+        showMessage("ce n'est pas très efficace...")
+    } else if (multiplier === 0){
+        showMessage("cela n'a aucun effet...");
+    }
+
+    // 6. Message d'attaque (avec les dégâts finaux)
+    showMessage(`${attacker.name} utilise ${moveName} et inflige ${finalDamage} dégâts !`);
+
+    // 7. infliger les dégats (finalDamage)
+    defender.hp -= finalDamage;
     if (defender.hp < 0) defender.hp = 0;
 
-    // 6.Mettre à jour l'affichage
+    // 8.Mettre à jour l'affichage
     
     updateHPBars();
 
-    //7. Vériier si le défenseur est k.0. (optionnel pour l'instant)
-    if (defender.hp <= 0){
-        showMessage(`${defender.name} est K.O. !`);
-        // la fin d'un combat
-    }
+    //9. Vériier si le défenseur est k.0. (optionnel pour l'instant)
 
 // c'est le tour de l'adversaire
         // si l'attaquant est le joueur, que l'ennemi est vivant et que le joueur aussi
@@ -150,7 +178,6 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
 // partie win ou gameover
 // partie commentaire
     if (defender.hp <= 0){
-        console.log(defender.hp);
         showMessage(`${defender.name} est K.O`);
         gameActive = false;
         disableAttackButtons(true);
@@ -161,7 +188,11 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
         }else{
             showMessage("🏆Victoire!");
         }
-    // créer un bouton recommencer
+    
+    // Supprimer l'ancien bouton s'il existe
+    const oldBtn = document.getElementById('restart-btn');
+    if (oldBtn) oldBtn.remove();
+        // créer un bouton recommencer
     const restartBtn = document.createElement('button');
     restartBtn.id = 'restart-btn';
     restartBtn.textContent = '🔄Recommencer';
@@ -190,8 +221,7 @@ function updateHPBars(){
     const playerBar = document.getElementById('player-hp-bar');
     const playerText = document.getElementById('player-hp-text');
 
-    // playerBar.style.width = Math.floor(playerPercent * 280) + 'px';
-    playerBar.style.width = playerPercent * 280 + 'px'; // la barre reste à 280 px même si les PV
+    playerBar.style.width = Math.floor(playerPercent * 280) + 'px';
     playerText.textContent = `${playerPokemon.hp} / ${playerPokemon.maxHP}`;
 
     if (playerPercent > 0.5) {
@@ -238,6 +268,9 @@ function updateAttackButtons(){
             btn.onclick = null;
         }
     }
+
+  
+
 }
 
 
