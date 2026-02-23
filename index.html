@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poke Blood</title>
+    <title>🩸 Poke-Blood 🩸</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>Poke-Blood</h1>
+    <h1>🩸<i> Poke-Blood</i> 🩸</h1>
+    <!-- pokeball animée -->
     <div id="pokeball">
-<div class="pokemon-card" onclick="index">
-    <img src="./assets/image/Geodude.png">
-    <p>Racaillou</p>
+        <div class="pokeball"></div>
 </div>
-<div class="pokemon-card" onclick="index">
-    <img src="./assets/image/800px-Dracaufeu-RFVF.png">
-    <p>Dracaufeu</p>
-</div>
-<div class="pokemon-card" onclick="index">
-    <img src="./assets/image/800px-Méga-Tortank-XY.png">
-    <p>Tortank</p>
-<a href="battle.html" class="start-btn">LANCER LE JEU</a>
+
+  <!-- carte de seletion  des Pokémon -->
+   <div class="pokemon-selection">
+    <div class="pokemon-card" onclick="selectPokemon(0)">
+        <img src="./assets/image/Geodude.png" alt="Racaillou" height="200" width="200">
+            <p>Racaillou</p>
     </div>
+    <div class="pokemon-card" onclick="selectPokemon(1)">
+        <img src="./assets/image/800px-Dracaufeu-RFVF.png" alt="Dracaufeu" height="200" width="200">
+            <p>Dracaufeu</p>
+    </div>
+    <div class="pokemon-card" onclick="selectPokemon(2)">
+        <img src="./assets/image/800px-Méga-Tortank-XY.png" alt="Tortank" height="200" width="200">
+        <p>Tortank</p>
+    </div>
+   </div>
+    <!-- bouton pour lancée le jeu -->
+<a href="battle.html" class="start-btn">LANCER LE JEU</a>
+
     <script src="./script/script.js"></script>
 
 

@@ -1,5 +1,5 @@
 /* Ajoutez ces styles de base */
-/* #pokeball {
+#pokeball {
     width: 100px;
     height: 100px;
     background: red;
@@ -16,10 +16,21 @@
     0%,100% { transform: rotate(0); }
     25% { transform: rotate(20deg); }
     75% { transform: rotate(-20deg); }
-} */
+} 
+
+.pokemon-selection{
+    display: flex;
+    flex-direction: row;
+    gap: 20;
+}
+
+.pokemon-card{
+    border-radius: 7px 7px 7px 7px;
+    border: 2px solid white;
+}
 
 body{
-    background-color: lavender;
+    background-color: rgb(171, 171, 255);
 }
 
 .start-btn{
