@@ -142,18 +142,17 @@ function attack(moveIndex, attacker, defender){
     if (multiplier > 1){
     //     showMessage("c'est super efficace !");
     
-    message += "c'est super efficace !";
+    message += " c'est super efficace !";
     } else if (multiplier <1 && multiplier > 0){
         // showMessage("ce n'est pas très efficace...")
-    message += "ce n'est pas très efficace...";
+    message += " ce n'est pas très efficace...";
     } else if (multiplier === 0){
     //     showMessage("cela n'a aucun effet...");
-    message += "cela n'a aucun effet...";
+    message += " cela n'a aucun effet...";
     }
     showMessage(message);
     // 6. Message d'attaque (avec les dégâts finaux)
-    showMessage(`${attacker.name} utilise ${moveName} et inflige ${finalDamage} dégâts !`);
-   
+    
     // 7. infliger les dégats (finalDamage)
     defender.hp -= finalDamage;
     if (defender.hp < 0) defender.hp = 0;
@@ -167,10 +166,10 @@ function attack(moveIndex, attacker, defender){
 // c'est le tour de l'adversaire
         // si l'attaquant est le joueur, que l'ennemi est vivant et que le joueur aussi
 if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
-    // console.log("Condition remple, lancement du tour ennemi");
+
     disableAttackButtons(true);
     setTimeout(() => {
-        // console.log("Délai passé, attaque ennemie");
+
         const randomMove = Math.floor(Math.random() * 4); 
         attack(randomMove, enemyPokemon, playerPokemon);
         if (playerPokemon.hp > 0 && enemyPokemon.hp > 0){
@@ -180,7 +179,7 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
 }
 
 // partie win ou gameover
-// partie commentaire
+
     if (defender.hp <= 0){
         showMessage(`${defender.name} est K.O`);
         gameActive = false;
@@ -201,7 +200,8 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
     restartBtn.id = 'restart-btn';
     restartBtn.textContent = '🔄Recommencer';
     restartBtn.style.cssText = 'position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 15px 30px; background: #ffd700; border: 2px solid #000; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 1000;';
-    restartBtn.onclick = () => location.reload();
+    // restartBtn.onclick = () => location.reload();
+    restartBtn.onclick = () => window.location.href = 'index.html';//quand j'active les 2 restartBtn.onclick c'est le deuxième qui est fonctionnelle pour résumer le denier domine
     document.body.appendChild(restartBtn);
 
     return; //Ne pas déclencher le tour ennemi 
@@ -301,7 +301,7 @@ function choisirPokemon(index){
         const index = this.localStorage.getItem('choixPokemon');
         if(index !== null){
             selectPokemon(parseInt(index)); // transforme la chaine "0" en nombre 0
-            // localStorage.removeItem('choixPokemon');// nettoie pour éviter de re-sélectionner au prochain chargement
+            localStorage.removeItem('choixPokemon');// nettoie pour éviter de re-sélectionner au prochain chargement
         }
     }
 
