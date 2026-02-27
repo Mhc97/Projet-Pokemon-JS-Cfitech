@@ -201,7 +201,7 @@ if (attacker === playerPokemon && defender.hp > 0 && playerPokemon.hp > 0){
     restartBtn.textContent = '🔄Recommencer';
     restartBtn.style.cssText = 'position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 15px 30px; background: #ffd700; border: 2px solid #000; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 1000;';
     // restartBtn.onclick = () => location.reload();
-    restartBtn.onclick = () => window.location.href = 'index.html';//quand j'active les 2 restartBtn.onclick c'est le deuxième qui est fonctionnelle pour résumer le denier domine
+    restartBtn.onclick = () => window.location.href = 'select.html';//quand j'active les 2 restartBtn.onclick c'est le deuxième qui est fonctionnelle pour résumer le denier domine
     document.body.appendChild(restartBtn);
 
     return; //Ne pas déclencher le tour ennemi 
