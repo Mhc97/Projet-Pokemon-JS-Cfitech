@@ -305,6 +305,28 @@ function choisirPokemon(index){
         }
     }
 
+    // musique optionnel
+
+    //  Créer objet audio
+
+    const monSon = new Audio('assets/musique/Pokemon Battle Theme - Trap Remix.mp3');
+
+    // Jouer le son
+
+    function jouerSon(){
+        monSon.play();
+    }
+
+    // Mettre en pause
+
+    function pauseSon(){
+        monSon.pause();
+    }
+
+    
+
+
+
 
 
 
