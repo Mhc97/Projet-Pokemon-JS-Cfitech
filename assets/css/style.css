@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(171, 171, 255);
+    background-color: rgb(104, 104, 212);
     text-align: center;
 }
 
@@ -63,7 +63,7 @@ z-index: 1000;
 
 
 }
-/* ===== PAGE DE COMBAT ===== */
+/*  PAGE DE COMBAT */
 .battle-page {
     background: linear-gradient(135deg, #1c2941 0%, #679fff 100%);
     min-height: 100vh;
