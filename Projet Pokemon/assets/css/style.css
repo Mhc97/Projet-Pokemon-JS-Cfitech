@@ -267,6 +267,41 @@ transition: 1.5s;
 
 
 /*  PAGE DE COMBAT */
+
+.playsound{
+     /* Taille et alignement */
+    display: inline-flex; /* Empêche le bouton de prendre toute la largeur */
+    align-items:center;
+    justify-content:center;
+    height: auto; /* Laisse le padding gérer la hauteur */
+    padding: 6px 12px; /* Réduit pour un aspect plus petit */
+    
+    /* Style visuel */
+    font-size: 0.75rem; /* Police plus petite */
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 6px; /* Arrondi plus fin pour petit bouton */
+    
+    /* Animation et curseur */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    /* Effet 3D (style bouton GameBoy) */
+    box-shadow: 0 2px 0 #3b4cca; 
+}
+
+.playsound:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+    
+
+
+
 .battle-page {
     background: linear-gradient(135deg, #0d192e 0%, #225ac2 100%);
     min-height: 100vh;

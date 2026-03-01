@@ -305,24 +305,22 @@ function choisirPokemon(index){
         }
     }
 
-    // musique optionnel
+    // musique optionnel que j'ai tester en js
 
-    //  Créer objet audio
+    // crée l'instance une seule fois
+    const battleMusic = new Audio('./assets/musique/Pokemon Battle Theme - Trap Remix.mp3');
 
-    const monSon = new Audio('./assets/musique/Pokemon Battle Theme - Trap Remix.mp3');
-
-    // Jouer le son
-
-    function jouerSon(){
-        monSon.play();
+    function playSound() {
+    // Remet la musique au début(0 secode) pour eviter qu'elle reprenne en boucle
+    battleMusic.currentTime = 0;
+    // lance la musique
+    battleMusic.play();
     }
 
-    // Mettre en pause
-
-    function pauseSon(){
-        monSon.pause();
+    function stopSound(){
+    // mes la musique en pause
+        battleMusic.pause();
     }
-
 
 
 
