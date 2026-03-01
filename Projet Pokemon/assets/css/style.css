@@ -1,0 +1,467 @@
+* {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2C2C2C 100%);
+    background-attachment: fixed;
+    color: #ffffff;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.walpaper{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url(../image/prison.jpg);
+    /*  Empêcher la répétition */
+    background-repeat: no-repeat;
+
+    /*  Centrer l'image */
+    background-position: center center;
+
+    /* Couvrir toute la zone sans déformer (crucial) */
+    background-size: cover;
+
+    /*  Fixer l'image pour un effet parallaxe (optionnel) */
+    background-attachment: fixed;
+
+    /*  Assurer que l'élément prend toute la hauteur */
+    min-height: 100vh;
+
+
+
+
+}
+
+h1{
+    color: rgba(169, 15, 15, 0.915);
+    margin-top: 10px;
+}
+
+h1:hover{
+    color: goldenrod;
+    transition: 2s;
+}
+
+h2{
+    color: goldenrod;
+    margin-top: 20px;
+}
+/* centrer est ajuster pokeball */
+.pokecenter{
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.intro-pokemon{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 20px;
+}
+
+
+
+/* POKEBALL ANIMÉE */
+.pokeball-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    perspective: 1000px;
+    
+}
+
+.pokeball {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden; 
+    box-shadow: 0 7px 25px rgba(169, 15, 15, 0.915);
+    /* 2 keyframes */
+    animation: pokeball-rotate 4s ease-in-out infinite, pokeball-float 3s ease-in-out infinite;
+}
+
+/* Animation rotation 3D */
+@keyframes pokeball-rotate {
+    0%, 100% { 
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    25% { 
+        transform: rotateY(180deg) rotateX(10deg);
+    }
+    50% { 
+        transform: rotateY(360deg) rotateX(0deg);
+    }
+    75% { 
+        transform: rotateY(180deg) rotateX(-10deg);
+    }
+}
+
+/* Animation flottement */
+@keyframes pokeball-float {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-20px);
+    }
+}
+
+/* Effet hover sur pokéball */
+.pokeball:hover {
+    animation: pokeball-shake 0.5s ease-in-out infinite;
+}
+
+@keyframes pokeball-shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+
+/* Partie haute (rouge) */
+.pokeball-top {
+    width: 100%;
+    height: 95px;
+    background: linear-gradient(180deg, #ff1744 0%, #d50000 100%);
+    border-radius: 100px 100px 0 0;
+    border: 4px solid #000;
+    border-bottom: 2px solid #000;
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.3);
+}
+
+/* Bande milieu (noir avec bouton blanc) */
+.pokeball-middle {
+    width: 100%;
+    height: 20px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #000;
+    box-sizing: border-box; /* eviter débordement */
+}
+
+/* Bouton central blanc */
+.pokeball-button {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #ffffff 0%, #e0e0e0 100%);
+    border-radius: 50%;
+    border: 5px solid #000;
+    position: relative;
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2),0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Reflet sur bouton */
+.pokeball-button::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+}
+
+/* Partie basse (blanche) */
+.pokeball-bottom {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%);
+    border-radius: 0 0 100px 100px;
+    border: 4px solid #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* select.html */
+
+.pokemon-posture{
+    text-align: center;
+    margin-top: 60px;
+}
+
+.pokemon-selection{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 20px;
+}
+
+.pokemon-card{
+
+    border-radius: 7px 7px 7px 7px;
+    border: 2px solid white;
+    cursor: grab;
+}
+
+.pokemon-card:hover{
+    transform: scale(1.3);
+    border: 2px solid rgba(169, 15, 15, 0.915);
+    box-shadow: 0 5px 50px rgba(169, 15, 15, 0.915);
+    color: red;
+}
+
+.start-btn{
+
+
+text-decoration: none;
+position: fixed; 
+bottom: 100px; 
+left: 45%; 
+margin-bottom: 150px;
+transform: translateX(-50%); 
+padding: 15px 30px; 
+background: #ffd700; 
+border: 2px solid #000; 
+border-radius: 20px 20px 20px 20px; 
+font-weight: bold; 
+cursor: pointer; 
+z-index: 1000;
+animation: pokeball-rotate 4s ease-in-out infinite, pokeball-float 3s ease-in-out infinite;
+transition: 1.5s;
+
+}
+
+
+
+.start-btn:hover{
+    color: rgba(169, 15, 15, 0.915);
+    transform: scale(1.5);
+    transition: 2s;
+    box-shadow: 0 5px 50px rgba(169, 15, 15, 0.915);
+    
+}
+
+
+
+/*  PAGE DE COMBAT */
+.battle-page {
+    background: linear-gradient(135deg, #0d192e 0%, #225ac2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.battle-arena {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://i.pinimg.com/originals/2d/2c/d3/2d2cd3e3b1c3b3a3b3c3d3e3f3g3h3i3.jpg') center/cover;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+}
+
+/* Infos joueur (haut gauche) */
+.player-info {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #3b4cca;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+/* Infos ennemi (haut droite) */
+.enemy-info {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #ff0000;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.pokemon-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hp-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Barre de vie */
+.hp-bar-container {
+    width: 100%;
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 2px solid #000;
+}
+
+.hp-bar {
+    height: 100%;
+    width: 100%;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.hp-bar.green { background: #4CAF50; }
+.hp-bar.orange { background: #FF9800; }
+.hp-bar.red { background: rgba(169, 15, 15, 0.915); }
+
+/* Sprites */
+.player-sprite {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    width: 280px;
+    height: 280px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    animation: playerBounce 2s ease-in-out infinite;
+    z-index: 5;
+}
+
+.enemy-sprite {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    animation: enemyFloat 3s ease-in-out infinite;
+    z-index: 5;
+}
+
+@keyframes playerBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes enemyFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Zone inférieure */
+.battle-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 20;
+}
+
+.message-box {
+    flex: 2;
+    background: rgba(2, 2, 2, 0.95);
+    border: 4px solid #3b4cca;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(169, 15, 15, 0.915);
+}
+
+.message-text {
+    color: #c10404dc;
+    animation: messagePulse 0.5s ease;
+}
+
+@keyframes messagePulse {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.attack-zone {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.attack-btn {
+    padding: 15px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 0 #3b4cca;
+}
+
+.attack-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3b4cca;
+}
+
+.attack-btn:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3b4cca;
+}
+
+.attack-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(50%);
+}
