@@ -309,7 +309,7 @@ function choisirPokemon(index){
 
     //  Créer objet audio
 
-    const monSon = new Audio('assets/musique/Pokemon Battle Theme - Trap Remix.mp3');
+    const monSon = new Audio('./assets/musique/Pokemon Battle Theme - Trap Remix.mp3');
 
     // Jouer le son
 
@@ -323,7 +323,7 @@ function choisirPokemon(index){
         monSon.pause();
     }
 
-    
+
 
 
 
